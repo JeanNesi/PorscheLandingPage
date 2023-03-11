@@ -9,37 +9,20 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { ContainerCarousel, CarouselContent } from "./styles";
+import { ICarousel } from "./utils/types";
 
-export default function Carousel() {
-  const carouselImages = [
-    {
-      src: icon.cover1,
-      alt: "",
-    },
-    {
-      src: icon.cover2,
-      alt: "",
-    },
-    {
-      src: icon.cover3,
-      alt: "",
-    },
-    {
-      src: icon.cover4,
-      alt: "",
-    },
-  ];
+export const Carousel = ({ images }: ICarousel) => {
   return (
     <ContainerCarousel>
       <CarouselProvider
         className="carouselContainer"
         naturalSlideWidth={100}
         naturalSlideHeight={40}
-        totalSlides={carouselImages.length}
+        totalSlides={images.length}
         isPlaying
       >
         <Slider className="sliderContainer">
-          {carouselImages.map((image, i) => (
+          {images.map((image, i) => (
             <Slide key={i} index={i}>
               <Image src={image.src} alt={image.alt} />
             </Slide>
@@ -49,10 +32,10 @@ export default function Carousel() {
           <ButtonNext className="nextArrow">
             <Image src={icon.rightArrow} alt="" />
           </ButtonNext>
-          <h1>feel the passion of driving a classic </h1>
+          <h1>feel the passion of driving a classic</h1>
           <DotGroup className="dotGroup" />
         </CarouselContent>
       </CarouselProvider>
     </ContainerCarousel>
   );
-}
+};

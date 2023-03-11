@@ -1,8 +1,32 @@
-import Carousel from "@/components/carousel";
+import { icon } from "@/assets";
+import { Carousel } from "@/components/carousel";
 import Head from "next/head";
 import { Main } from "./styles";
+import * as Style from "./styles";
+import { ModelsSection } from "@/components/modelsSection";
+import { Fade } from "react-awesome-reveal";
+import { FindPorscheSection } from "@/components/findPorsche";
 
 export default function Home() {
+  const carouselImages = [
+    {
+      src: icon.cover1,
+      alt: "",
+    },
+    {
+      src: icon.cover2,
+      alt: "",
+    },
+    {
+      src: icon.cover3,
+      alt: "",
+    },
+    {
+      src: icon.cover4,
+      alt: "",
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -12,7 +36,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <Carousel />
+        <Fade>
+          <Carousel images={carouselImages} />
+        </Fade>
+
+        <Fade fraction={0.1}>
+          <ModelsSection />
+        </Fade>
+
+        <Fade>
+          <FindPorscheSection />
+        </Fade>
       </Main>
     </>
   );

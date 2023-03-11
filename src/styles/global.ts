@@ -8,6 +8,21 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: Inter, sans-serif;
+
+    ::-webkit-scrollbar {
+    width: 6px; /* width of the entire scrollbar */
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${theme.color.gray1}; /* color of the tracking area */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${theme.color.gray3}; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid ${theme.color.gray3}; /* creates padding around scroll thumb */
+  }
   }
 
   html {
@@ -37,7 +52,6 @@ export default createGlobalStyle`
     transition: 0.25s;
     :hover {
       opacity: 0.7;
-      color: ${theme.color.primary}
     }
   }
 
@@ -61,22 +75,18 @@ export default createGlobalStyle`
 
 
   button {
-    width: fit-content;
-    border-radius: ${theme.size.xsm};
-    padding: ${theme.size.sm} ${theme.size.lg};
+    width: 100%;
+    max-width: 264px;
+    border-radius: ${theme.size.md};
     outline: none;
-    border: none;
+    padding: ${theme.size.xsm} ${theme.size.xxlg};
+    border: 1px solid ${theme.color.black};
     cursor: pointer;
-    color: ${theme.color.white};
-    background-color: ${theme.color.primary};
+    color: ${theme.color.black};
+    background-color: transparent;
     transition: 0.25s;
     :hover {
       opacity: 0.7;
-    }
-    z-index: 10;
-    @media (max-width: 900px) {
-      padding: 12px 32px;
-      width: 100%;
     }
   }
 

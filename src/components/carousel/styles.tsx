@@ -15,7 +15,6 @@ export const CarouselContent = styled.div`
   width: 100%;
   position: absolute;
   height: 100%;
-  z-index: 999;
   bottom: 0px;
 
   display: flex;
@@ -50,11 +49,15 @@ export const CarouselContent = styled.div`
       background: ${theme.color.gray4};
       width: 100%;
       border-radius: 0;
+      z-index: 1;
+      border: none;
     }
   }
 
   .nextArrow {
     padding: 0;
+    max-width: fit-content;
     background: transparent;
+    border: none;
   }
 `;
